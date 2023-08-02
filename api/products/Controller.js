@@ -86,7 +86,7 @@ const updateproduct = async (req, res) => {
     const update = { id,title, price, brand, category, images };
   
     try {
-        await connect(process.env.MONGO_URI)
+        await connect(process.env.MONGO_URL)
   
         await Product.findOneAndUpdate(filter, update, {
             new: true
@@ -116,7 +116,7 @@ const deleteproduct = async (req, res) => {
   
   
     try {
-        await connect(process.env.MONGO_URI)
+        await connect(process.env.MONGO_URL)
         await Product.deleteOne({ _id })
         const product = await Product.find()
         res.status(200).json({

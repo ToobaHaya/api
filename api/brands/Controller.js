@@ -110,13 +110,13 @@ const brandByName = async (req,res) => {
 
     }
 }
-const deletebrand = async (req, res) => {
+const deletebrand = async (req, res) => {          
 
     const { _id } = req.body
   
   
     try {
-        await connect(process.env.MONGO_URI)
+        await connect(process.env.MONGO_URL)
         await Brand.deleteOne({ _id })
         const brand = await Brand.find()
         res.status(200).json({
@@ -142,7 +142,7 @@ const deletebrand = async (req, res) => {
     const update = {  brandId,BrandName,BrandImage };
   
     try {
-        await connect(process.env.MONGO_URI)
+        await connect(process.env.MONGO_URL)
   
         await Brand.findOneAndUpdate(filter, update, {
             new: true

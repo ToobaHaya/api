@@ -94,7 +94,7 @@ const updateCategory = async (req, res) => {
   const update = { CategoryName, CategoryImage };
 
   try {
-      await connect(process.env.MONGO_URI)
+      await connect(process.env.MONGO_URL)
 
       await Category.findOneAndUpdate(filter, update, {
           new: true
@@ -124,7 +124,7 @@ const deletecategory = async (req, res) => {
 
 
   try {
-      await connect(process.env.MONGO_URI)
+      await connect(process.env.MONGO_URL)
       await Category.deleteOne({ _id })
       const category = await Category.find()
       res.status(200).json({

@@ -171,7 +171,7 @@ const updateuser = async (req, res) => {
     const update = { username };
   
     try {
-        await connect(process.env.MONGO_URI)
+        await connect(process.env.MONGO_URL)
   
         await User.findOneAndUpdate(filter, update, {
             new: true
@@ -201,7 +201,7 @@ const deleteuser = async (req, res) => {
   
   
     try {
-        await connect(process.env.MONGO_URI)
+        await connect(process.env.MONGO_URL)
         await User.deleteOne({ _id })
         const user = await User.find()
         res.status(200).json({
