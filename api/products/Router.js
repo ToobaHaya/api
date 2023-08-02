@@ -5,7 +5,7 @@ const { Productbybrand, postProducts ,Productbycategory ,updateproduct , deletep
 router.get('/productsbybrand/:brand', Productbybrand)
 router.get('/Productbycategory/:category', Productbycategory)
 router.post('/products', postProducts)
-router.update('/updateproduct/:_id', updateproduct)
+router.put('/updateproduct/:_id', updateproduct)
 router.delete('/deleteproduct/:_id', deleteproduct)
 
 
